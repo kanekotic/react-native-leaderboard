@@ -15,7 +15,7 @@
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.kanekotic.reactnativeleaderboard.LeaderboardPackage;` to the imports at the top of the file
+  - Add `import com.reactlibrary.LeaderboardPackage;` to the imports at the top of the file
   - Add `new LeaderboardPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
@@ -35,4 +35,5 @@ import Leaderboard from 'react-native-leaderboard';
 // TODO: What to do with the module?
 Leaderboard;
 ```
+
 ##### Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Makr">LogoMakr.com</a> https://logomakr.com/3JN8ql

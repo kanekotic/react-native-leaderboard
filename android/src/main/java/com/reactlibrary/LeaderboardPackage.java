@@ -1,5 +1,5 @@
 
-package com.kanekotic.reactnativeleaderboard;
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
