@@ -1,4 +1,11 @@
 language: android
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+    - build-tools-26.0.3
+    - android-26
 script:
   - cd android;
   - ./gradlew test
