@@ -3,7 +3,7 @@
 
 ## Getting started
 
-`$ npm install react-native-leaderboard --save`
+`npm install react-native-leaderboard --save` or `yarn add react-native-leaderboard`
 
 ### Mostly automatic installation
 
