@@ -28,14 +28,14 @@ public class LeaderboardModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void show(String LeaderboardId) {
-    Games.getLeaderboardsClient(this.reactContext, GoogleSignIn.getLastSignedInAccount(this.reactContext))
-            .getLeaderboardIntent(LeaderboardId)
-            .addOnSuccessListener(new OnSuccessListener<Intent>() {
-              @Override
-              public void onSuccess(Intent intent) {
-//                startActivityForResult(intent, RC_LEADERBOARD_UI);
-              }
-            });
+//    Games.getLeaderboardsClient(this.reactContext, GoogleSignIn.getLastSignedInAccount(this.reactContext))
+//            .getLeaderboardIntent(LeaderboardId)
+//            .addOnSuccessListener(new OnSuccessListener<Intent>() {
+//              @Override
+//              public void onSuccess(Intent intent) {
+////                startActivityForResult(intent, RC_LEADERBOARD_UI);
+//              }
+//            });
 
   }
 }
