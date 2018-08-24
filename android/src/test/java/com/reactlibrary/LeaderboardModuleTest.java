@@ -11,6 +11,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.facebook.react.bridge.ReactApplicationContext;
+
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,16 +20,19 @@ import static org.hamcrest.core.Is.is;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LeaderboardModuleTest {
-    private static final String FAKE_STRING = "HELLO WORLD";
-
-    @Mock
-    Context mMockContext;
 
     @Test
-    public void testSomething() {
-        when(mMockContext.getString(R.string.catalyst_debugjs))
-                .thenReturn(FAKE_STRING);
+    public void getNameShouldReturnStringLeaderboardTest() {
+        ReactApplicationContext context = mock(ReactApplicationContext.class);
+        LeaderboardModule instance = new LeaderboardModule(context);
 
-        assertThat(true, is(true));
+        assertThat(instance.getName(), is("Leaderboard"));
+    }
+
+    @Test
+    public void showLeaderboardShouldOpenLeaderboardTest() {
+        ReactApplicationContext context = mock(ReactApplicationContext.class);
+        LeaderboardModule instance = new LeaderboardModule(context);
+        instance.show();
     }
 }
