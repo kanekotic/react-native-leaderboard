@@ -27,7 +27,7 @@ public class LeaderboardModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void show(String LeaderboardId) {
+  public void show() {
 //    Games.getLeaderboardsClient(this.reactContext, GoogleSignIn.getLastSignedInAccount(this.reactContext))
 //            .getLeaderboardIntent(LeaderboardId)
 //            .addOnSuccessListener(new OnSuccessListener<Intent>() {
