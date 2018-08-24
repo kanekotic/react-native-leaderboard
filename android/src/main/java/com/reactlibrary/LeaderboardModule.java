@@ -1,6 +1,7 @@
 
 package com.reactlibrary;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -27,15 +28,16 @@ public class LeaderboardModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void show() {
-//    Games.getLeaderboardsClient(this.reactContext, GoogleSignIn.getLastSignedInAccount(this.reactContext))
-//            .getLeaderboardIntent(LeaderboardId)
-//            .addOnSuccessListener(new OnSuccessListener<Intent>() {
-//              @Override
-//              public void onSuccess(Intent intent) {
-////                startActivityForResult(intent, RC_LEADERBOARD_UI);
-//              }
-//            });
+  public void show(String leaderboardName) {
+    final Activity currentActivity = getCurrentActivity();
+    Games.getLeaderboardsClient(this.reactContext, GoogleSignIn.getLastSignedInAccount(this.reactContext))
+            .getLeaderboardIntent(leaderboardName)
+            .addOnSuccessListener(new OnSuccessListener<Intent>() {
+              @Override
+              public void onSuccess(Intent intent) {
+                currentActivity.startActivityForResult(intent, RC_LEADERBOARD_UI);
+              }
+            });
 
   }
 }
