@@ -7,7 +7,9 @@ import android.content.Intent;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.UiThreadUtil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.tasks.OnSuccessListener;
 
@@ -28,16 +30,29 @@ public class LeaderboardModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void show(String leaderboardName) {
-    final Activity currentActivity = getCurrentActivity();
-    Games.getLeaderboardsClient(this.reactContext, GoogleSignIn.getLastSignedInAccount(this.reactContext))
+  public void show(final String leaderboardName) {
+  try {
+    final Activity activity = getCurrentActivity();
+
+    Games.getLeaderboardsClient(activity, GoogleSignIn.getLastSignedInAccount(reactContext))
             .getLeaderboardIntent(leaderboardName)
             .addOnSuccessListener(new OnSuccessListener<Intent>() {
               @Override
-              public void onSuccess(Intent intent) {
-                currentActivity.startActivityForResult(intent, RC_LEADERBOARD_UI);
+              public void onSuccess(final Intent intent) {
+                UiThreadUtil.runOnUiThread(new Runnable() {
+                  @Override
+                  public void run() {
+                    activity.startActivityForResult(intent, RC_LEADERBOARD_UI);
+                  }
+                });
               }
             });
+  }
+  catch (Exception ex)
+  {
+    System.out.println(ex.toString());
+  }
+
 
   }
 }

@@ -1,12 +1,13 @@
 allprojects {
     repositories {
-        google()
+        jcenter()
+        maven { url "https://maven.google.com" }
     }
 }
 
 buildscript {
     repositories {
-        google()
+        maven { url "https://maven.google.com" }
         jcenter()
     }
 
@@ -38,11 +39,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
-    implementation 'com.google.android.gms:play-services-games:+'
-    implementation 'com.google.android.gms:play-services-auth:+'
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:1.10.19'
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.google.android.gms:play-services-games:+'
+    compile 'com.google.android.gms:play-services-auth:+'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
 
 }
   
